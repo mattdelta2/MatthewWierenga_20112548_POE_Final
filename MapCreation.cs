@@ -211,10 +211,8 @@ namespace MatthewWierenga_20112548_POE
         public Items GetItemAtPosition()
         {
 
-            return new Gold(0, 0, TileType.Enemy, new Tile[]
-            {
-                null,null,null,null
-            });
+            return new Gold(0, 0, TileType.Enemy, new Tile[]);
+
 
 
 

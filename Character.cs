@@ -155,6 +155,11 @@ namespace MatthewWierenga_20112548_POE
         {
             throw new NotImplementedException();
         }
+
+        internal void Move()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

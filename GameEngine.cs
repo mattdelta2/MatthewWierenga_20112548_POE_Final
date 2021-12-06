@@ -50,8 +50,9 @@ namespace MatthewWierenga_20112548_POE
         }
 
 
-        public int X { get; private set; }
-        public int Y { get; private set; }
+        public int X { get;  set; }
+        public int Y { get;  set; }
+        public object CHARACTER { get;  set; }
 
         public GameEngine(int _enemies, int _MAPWIDTH, int _MAPHEIGHT, int _SPAWNGOLD)
         {
@@ -140,19 +141,15 @@ namespace MatthewWierenga_20112548_POE
         private Goblin CreateGoblin()
         {
 
-            return new Goblin(0, 0, TileType.Enemy, new Tile[]
-            {
-                null,null,null,null
-            });
+            return new Goblin(0, 0, TileType.Enemy, new Tile[]);
+
         }
 
         private Mage CreateMage()
         {
 
-            return new Mage(0, 0, TileType.Enemy, new Tile[]
-            {
-                null,null,null,null
-            });
+            return new Mage(0, 0, TileType.Enemy, new Tile[]);
+
         }
 
 
