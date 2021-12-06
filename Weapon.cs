@@ -15,6 +15,32 @@ namespace MatthewWierenga_20112548_POE
         protected string weaponType;
         private string symbol;
 
+        protected int x;
+        public int X
+        {
+            get { return x; }
+            set { x = value; }
+        }
+
+        protected int y;
+        public int Y
+        {
+            get { return y; }
+            set { y = value; }
+
+        }
+        private TileType typeoftile;
+
+        public TileType TYPEOFTILE
+        {
+            get { return typeoftile; }
+            set { typeoftile = value; }
+
+
+        }
+
+        public List<Tile> VISION { get; private set; }
+
         public Weapon(string weaponType)
         {/*
             this.damage = damage;
@@ -41,7 +67,7 @@ namespace MatthewWierenga_20112548_POE
 
             
         }
-
+        
         public int DAMAGE
         {
             get { return damage; }
@@ -172,12 +198,29 @@ namespace MatthewWierenga_20112548_POE
             }
 
             public string toString()
-              {
+            {
             return "Current Weapon:" + weaponType + "\nWeapon Range: " + range.ToString() + "\nWeapon Damage: " + damage.ToString() +
                     "\nDurability: " + durability.ToString() + "\n";
 
-              }
+            }
+
+        public void Tile(int _x, int _y, string _SYMBOL, TileType _TYPEOFTILE)
+        {
+            X = _x;
+            Y = _y;
+            SYMBOL = _SYMBOL;
+            TYPEOFTILE = _TYPEOFTILE;
+
+
+            VISION = new List<Tile>();
+
+
         }
+
+
+    }
+    
+    
     }
 
 

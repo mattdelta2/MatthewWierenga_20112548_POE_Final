@@ -159,7 +159,7 @@ namespace MatthewWierenga_20112548_POE
         }
 
 
-        private void randomlyPlaceObject(Tile tile)
+        public   void randomlyPlaceObject(Tile tile)
         {
 
             var x = RANDOMNUMBERGENERATOR.Next(0 + 1, MAPWIDTH - 1);

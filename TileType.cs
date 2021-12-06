@@ -10,6 +10,7 @@ namespace MatthewWierenga_20112548_POE
     {
         public static TileType Empty { get; internal set; }
         public static TileType Enemy { get; internal set; }
+        public static TileType Weapon { get; internal set; }
         public static object Hero { get; internal set; }
         public static object Obstacle { get; internal set; }
     }
