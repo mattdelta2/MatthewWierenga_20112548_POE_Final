@@ -77,8 +77,7 @@ namespace MatthewWierenga_20112548_POE
 
         }
 
-
-
+        public static object Gold { get; internal set; }
 
         public Character(int _X, int _Y, string _SYMBOL, TileType _TYPEOFTILE, int _HP, int _MAXHP, int _DAMAGE)
         {

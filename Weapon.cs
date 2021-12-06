@@ -15,13 +15,25 @@ namespace MatthewWierenga_20112548_POE
         protected string weaponType;
         private string symbol;
 
-        public Weapon(int damage, int range, int durability, int cost, string weaponType, string symbol)
-        {
+        public Weapon(string weaponType)
+        {/*
             this.damage = damage;
             this.range = range;
             this.durability = durability;
             this.cost = cost;
             this.weaponType = weaponType;
+        */
+            if(weaponType =="Dagger" || weaponType=="Longsword")
+            {
+                MeleeWeapon(weaponType);
+            }
+            else
+                if(weaponType == "LongBow"||weaponType =="Rifle")
+            {
+                RangeWeapon(weaponType);
+            }
+
+            
         }
 
         public int DAMAGE
@@ -65,25 +77,33 @@ namespace MatthewWierenga_20112548_POE
             get { return symbol; }
             set { symbol = value; }
         }
-    }
-
-
-    enum Types
-    {
-        Dagger,
-        Longsword
-    }
-
-     class MeleeWeapon : Weapon
 
 
 
-    {
-
-        public MeleeWeapon(int damage, int range, int durability, int cost, string weaponType, string symbol) : base(damage, range, durability, cost, weaponType, symbol)
+        enum Types
         {
-            range = 1;
+            Dagger,
+            Longsword,
+            Rifle,
+            Longbow
 
+        }
+
+
+
+
+
+
+
+        public void MeleeWeapon(string weaponType)
+        {
+
+
+            damage = 0;
+            durability = 0;
+            cost = 0;
+            range = 1;
+            string symbol = "";
             if (weaponType == "Dagger")
             {
                 damage = 3;
@@ -99,44 +119,45 @@ namespace MatthewWierenga_20112548_POE
                 cost = 5;
                 symbol = "LS";
             }
+            
+            
 
         }
 
 
-    }
 
 
 
-    enum Type
-    {
-        LongBow,
-        Rifle
-    }
-    class RangeWeapon : Weapon
-    {
-        public RangeWeapon(int damage, int range, int durability, int cost, string weaponType, string symbol) : base(damage, range, durability, cost, weaponType, symbol)
-        {
-            if (weaponType == "Longbow")
+
+
+       
+        
+            public void RangeWeapon( string weaponType)
             {
-                damage = 4;
-                range = 2;
-                durability = 4;
-                cost = 6;
-                symbol = "LB";
+                if (weaponType == "Longbow")
+                {
+                    damage = 4;
+                    range = 2;
+                    durability = 4;
+                    cost = 6;
+                    symbol = "LB";
+
+                }
+
+                if (weaponType == "Rifle")
+                {
+                    damage = 4;
+                    range = 2;
+                    durability = 4;
+                    cost = 7;
+                    symbol = "R";
+                }
+
 
             }
-
-            if (weaponType == "Rifle")
-            {
-                damage = 4;
-                range = 2;
-                durability = 4;
-                cost = 7;
-                symbol = "R";
-            }
-
-
         }
     }
-}
+
+
+
 
