@@ -155,6 +155,13 @@ namespace MatthewWierenga_20112548_POE
 
 
             }
+
+            public string toString()
+              {
+            return "Current Weapon:" + weaponType + "\nWeapon Range: " + range.ToString() + "\nWeapon Damage: " + damage.ToString() +
+                    "\nDurability: " + durability.ToString() + "\n";
+
+              }
         }
     }
 

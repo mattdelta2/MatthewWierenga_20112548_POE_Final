@@ -61,8 +61,26 @@ namespace MatthewWierenga_20112548_POE
                 {
                     if(intArray[j] ==0)
                     {
-                        weapArray[i] = Weapon("Weapon 1");
+                        weapArray[i] = new Weapon("Weapon 1");
+                        break;
                     }
+                    if (intArray[j] ==1)
+                    {
+                        weapArray[i] = new Weapon("Weapon2");
+                        break;
+                    }
+                    if (intArray[j] == 2)
+                    {
+                        weapArray[i] = new Weapon("Weapon3");
+                        break;
+                    }
+                    if (intArray[j] == 3)
+                    {
+                        weapArray[i] = new Weapon("Weapon4");
+                        break;
+                    }
+
+
                 }
 
 
@@ -73,9 +91,12 @@ namespace MatthewWierenga_20112548_POE
         }
 
 
+
         public bool CanBuy(int num)
         {
+            bool Purchase = false;
 
+            if(Character.)
         }
 
 
@@ -86,6 +107,12 @@ namespace MatthewWierenga_20112548_POE
 
         public string DisplayWeapon(int num)
         {
+            string S = "";
+            for(int i=0;i<weapArray.Length;i++)
+            {
+                S = weapArray[i].ToString() + "\n";
+            }
+            return S;
 
         }
 
