@@ -53,6 +53,7 @@ namespace MatthewWierenga_20112548_POE
         public int X { get;  set; }
         public int Y { get;  set; }
         public object CHARACTER { get;  set; }
+        public MapCreation GAMEMAP { get; private set; }
 
         public GameEngine(int _enemies, int _MAPWIDTH, int _MAPHEIGHT, int _SPAWNGOLD)
         {
@@ -64,6 +65,11 @@ namespace MatthewWierenga_20112548_POE
             this.MAPHEIGHT = _MAPHEIGHT;
 
             SpawnGold();
+        }
+
+        public GameEngine()
+        {
+            GAMEMAP = new MapCreation(10, 10, 10, 5);
         }
 
         private void CreateMap()
@@ -179,8 +185,9 @@ namespace MatthewWierenga_20112548_POE
         }
 
 
-        private void MovePlayer(Movement MoveChar)
+        private void MovePlayer(MovementDirection Direction)
         {
+            /*
             switch (MoveChar)
             {
                 case MoveChar.Down:
@@ -216,7 +223,31 @@ namespace MatthewWierenga_20112548_POE
 
                 }
             }
+            */
+            if(GAMEMAP.CHARACTER.ReturnMove(Direction)==Direction)
+            {
+                
+                GAMEMAP.Create(TileType.Empty, GAMEMAP.CHARACTER.Y);
+                GAMEMAP.CHARACTER.Move(Direction);
+                GAMEMAP.Map[GAMEMAP.CHARACTER.X, GAMEMAP.CHARACTER.Y] = GAMEMAP.CHARACTER.ToString();
 
+                return true;
+            }
+            return false;
+
+        }
+
+        public string PlayerAttack(int EnemyIndex)
+        {
+            bool EnemyInRange = false;
+
+            foreach(Tile T in GAMEMAP.CHARACTER.VISION)
+            {
+                if(T.X ==GAMEMAP.ENEMIES[EnemyIndex].X && (T.Y ==GAMEMAP.ENEMIES[EnemyIndex].Y))
+                {
+                    EnemyInRange = true;
+                }
+            }
         }
 
 

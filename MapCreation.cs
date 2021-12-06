@@ -9,7 +9,12 @@ namespace MatthewWierenga_20112548_POE
     class MapCreation
     {
         private Random RANDOMNUMBERGENERATOR;
-        public Tile[,] Map;
+        private Tile[,] map;
+        public Tile[,] Map
+        {
+            get { return map; }
+            set { map = value; }
+        }
         private Hero Character;
         public Hero CHARACTER
         {
@@ -27,6 +32,12 @@ namespace MatthewWierenga_20112548_POE
             get { return characters; }
             set { characters = value; }
         }
+        private List<Enemy> enemies;
+        public List<Enemy> ENEMIES
+        {
+            get { return enemies; }
+            set { enemies = value;}
+        }
 
         private int mapwidth;
         public int MAPWIDTH
@@ -42,6 +53,15 @@ namespace MatthewWierenga_20112548_POE
         {
             get { return mapheight; }
             set { mapheight = value; }
+        }
+
+        public MapCreation(int _MINWIDTH, int _MAXWIDTH, int _MINHEIGHT, int _MAXHEIGHT, int _NUMBEROFENEMIES)
+        {
+            MAPWIDTH = RANDOMNUMBERGENERATOR.Next(_MINWIDTH, _MAXWIDTH);
+            MAPHEIGHT = RANDOMNUMBERGENERATOR.Next(_MINHEIGHT, _MAXHEIGHT);
+            Map = new Tile(MAPWIDTH, MAPHEIGHT);
+            Enemies = new List<Enemy>();
+            
         }
 
         public MapCreation(int enemies, int _MAPWIDTH, int _MAPHEIGHT, int _GoldDrops)
@@ -80,8 +100,8 @@ namespace MatthewWierenga_20112548_POE
 
         }
 
-        private void CreateMap()
-        {
+        private void CreateMap(TileType TypeOfTile, int X = 0, int Y = 0)
+        {/*
             Map = new Tile[MAPWIDTH, MAPHEIGHT];
             initMap();
             drawBorders(MAPWIDTH, MAPHEIGHT);
@@ -112,9 +132,122 @@ namespace MatthewWierenga_20112548_POE
             }
 
             CHARACTERS.ForEach(UpdateVision);
+            */
 
+            switch (TypeOfTile)
+            {
+                case TileType.Barrier:
+                    Obstacle NewBarrier = new Obstacle(X, Y, "#", TypeOfTile);
+                    Map[X, Y] = NewBarrier;
+                    break;
+                case TileType.Empty:
+                    EmptyTile NewEmptyTile = new EmptyTile(X, Y, " ", TypeOfTile);
+                    Map[X, Y] = NewEmptyTile;
+                    break;
+                case TileType.Hero:
+                    int HeroX = RANDOMNUMBERGENERATOR.Next(0, MAPWIDTH);
+                    int HeroY = RANDOMNUMBERGENERATOR.Next(0, MAPHEIGHT);
+                    
+                    while (Map[HeroX,HeroY].TYPEOFTILE!=TileType.Enemy)
+                    {
+                        HeroX = RANDOMNUMBERGENERATOR.Next(0, MAPWIDTH);
+                        HeroY = RANDOMNUMBERGENERATOR.Next(0, MAPHEIGHT);
+                    }
+
+                    Hero NewHero = new Hero(HeroX, HeroY, TypeOfTile, "H", 100, 100, 100);
+                    Character = NewHero;
+                    Map[HeroX, HeroY] = NewHero;
+                    break;
+                case TileType(Enemy):
+                    int EnemyX = RANDOMNUMBERGENERATOR.Next(0, MAPWIDTH);
+                    int EnemyY = RANDOMNUMBERGENERATOR.Next(0, MAPHEIGHT);
+                    while (Map[EnemyX,EnemyY].TYPEOFTILE!=TileType.Empty)
+                    {
+                        EnemyX = RANDOMNUMBERGENERATOR.Next(0, MAPWIDTH);
+                        EnemyY = RANDOMNUMBERGENERATOR.Next(0, MAPHEIGHT);
+
+                    }
+
+                    Goblin NewEnemy = new Goblin(EnemyX, EnemyY, TypeOfTile, "G", 100, 100, 100);
+                    ENEMIES.Add(NewEnemy);
+                    Map[EnemyX, EnemyY] = NewEnemy;
+                    break;
+                case TileType.Gold:
+                    break;
+                
+
+
+            }
 
         }
+
+        public override string ToString()
+        {
+            string MapString = "";
+            for(int y=0; y<MAPWIDTH;y++)
+            {
+                for(int x =0;x<MAPHEIGHT;x++)
+                {
+                    MapString += Map[x, y].SYMBOL;
+                }
+                MapString += "\n";
+            }
+            return base.ToString();
+        }
+
+        public void UpdateVision()
+        {
+            foreach(Enemy E in ENEMIES)
+            {
+                E.VISION.Clear();
+                if(E.X>0)
+                {
+                    E.VISION.Add(Map[E.X - 1, E.Y]);
+                }
+
+                if(E.X <MAPWIDTH)
+                {
+                    E.VISION.Add(Map[E.X+1, E.Y]);
+                }
+
+                if(E.Y<0)
+                {
+                    E.VISION.Add(Map[E.X, E.Y - 1]);
+                }
+
+                if(E.Y>0)
+                {
+                    E.VISION.Add(Map[E.X, E.Y + 1]);
+                }
+            }
+
+            CHARACTER.VISION.Clear();
+
+            if(CHARACTER.X>0)
+            {
+                CHARACTER.VISION.Add(Map[CHARACTER.X - 1, CHARACTER.Y]);
+
+            }
+
+            if(CHARACTER.X<MAPWIDTH)
+            {
+                CHARACTER.VISION.Add(Map[CHARACTER.X + 1, CHARACTER.Y]);
+            }
+
+            if(CHARACTER.Y>0)
+            {
+                CHARACTER.VISION.Add(Map[CHARACTER.X, CHARACTER.Y - 1]);
+            }
+
+            if(CHARACTER.Y<MAPHEIGHT)
+            {
+                CHARACTER.VISION.Add(Map[CHARACTER.X, CHARACTER.Y + 1]);
+            }
+
+            int t = 0;
+        }
+
+        
 
         private void randomlyPlaceObject(Hero hero)
         {

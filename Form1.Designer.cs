@@ -32,6 +32,7 @@ namespace MatthewWierenga_20112548_POE
             this.btnSave = new System.Windows.Forms.Button();
             this.lblMap = new System.Windows.Forms.Label();
             this.Info = new System.Windows.Forms.Label();
+            this.lblEnemies = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnSave
@@ -55,22 +56,33 @@ namespace MatthewWierenga_20112548_POE
             // Info
             // 
             this.Info.AutoSize = true;
-            this.Info.Location = new System.Drawing.Point(573, 58);
+            this.Info.Location = new System.Drawing.Point(647, 41);
             this.Info.Name = "Info";
             this.Info.Size = new System.Drawing.Size(38, 15);
             this.Info.TabIndex = 2;
             this.Info.Text = "label1";
+            // 
+            // lblEnemies
+            // 
+            this.lblEnemies.AutoSize = true;
+            this.lblEnemies.Location = new System.Drawing.Point(647, 245);
+            this.lblEnemies.Name = "lblEnemies";
+            this.lblEnemies.Size = new System.Drawing.Size(38, 15);
+            this.lblEnemies.TabIndex = 3;
+            this.lblEnemies.Text = "label1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblEnemies);
             this.Controls.Add(this.Info);
             this.Controls.Add(this.lblMap);
             this.Controls.Add(this.btnSave);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -81,6 +93,7 @@ namespace MatthewWierenga_20112548_POE
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label lblMap;
         private System.Windows.Forms.Label Info;
+        private System.Windows.Forms.Label lblEnemies;
     }
 }
 

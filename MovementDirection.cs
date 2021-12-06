@@ -8,11 +8,24 @@ namespace MatthewWierenga_20112548_POE
 {
     class MovementDirection
     {
-        public static MovementDirection NoMovement { get; internal set; }
-        public static MovementDirection Right { get; internal set; }
-        public static MovementDirection Left { get; internal set; }
-        public static MovementDirection Down { get; internal set; }
-        public static MovementDirection Up { get; internal set; }
+        public enum TileType
+        {
+            Hero,
+            Enemy,
+            Gold,
+            Weapon,
+            Barrier,
+            Empty
+        }
+
+        public enum MovementDirections
+        {
+            NoMovement,
+            Up,
+            Down,
+            Left,
+            Right
+        }
     }
 }
 
