@@ -394,6 +394,31 @@ namespace MatthewWierenga_20112548_POE
             {
                 return MovementDirection.Up;
             }
+            else if (VISION[RandomTileIndex] == null)
+            {
+                int moveRandom = RANDOM_NUMBER_GENERATOR.Next(0, 3);
+                {
+                    if (moveRandom == 0)
+                    {
+                        return MovementDirection.Up;
+                    }
+                    else
+                        if (moveRandom == 1)
+                    {
+                        return MovementDirection.Down;
+                    }
+                    else
+                    if (moveRandom == 2)
+                    {
+                        return MovementDirection.Left;
+                    }
+                    else
+                        if (moveRandom == 3)
+                    {
+                        return MovementDirection.Right;
+                    }
+                }
+            }
 
             return MovementDirection.NoMovement;
 
