@@ -64,7 +64,8 @@ namespace MatthewWierenga_20112548_POE
         protected Character(int _x, int _y, TileType _TYPEOFTILE, string _SYMBOL, int _HP, int _MAXHP, int _DAMAGE)
         {
             SYMBOL = _SYMBOL;
-            HP;
+            return;
+            
         }
     }
 }

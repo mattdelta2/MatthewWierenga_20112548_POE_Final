@@ -74,7 +74,7 @@ namespace MatthewWierenga_20112548_POE
         Longsword
     }
 
-    internal class MeleeWeapon : Weapon
+     class MeleeWeapon : Weapon
 
 
 
