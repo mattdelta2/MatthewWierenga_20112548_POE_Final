@@ -61,7 +61,7 @@ namespace MatthewWierenga_20112548_POE
             throw new NotImplementedException();
         }
 
-        protected Character(int _x, int _y, TileType _TYPEOFTILE, string _SYMBOL, int _HP, int _MAXHP, int _DAMAGE)
+        protected void Character(int _x, int _y, TileType _TYPEOFTILE, string _SYMBOL, int _HP, int _MAXHP, int _DAMAGE)
         {
             SYMBOL = _SYMBOL;
             return;

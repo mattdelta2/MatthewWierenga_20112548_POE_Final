@@ -124,7 +124,7 @@ namespace MatthewWierenga_20112548_POE
         }
 
 
-        public Tile(int _x, int _y, string _SYMBOL, TileType _TYPEOFTILE)
+        public void Tile(int _x, int _y, string _SYMBOL, TileType _TYPEOFTILE)
         {
             X = _x;
             Y = _y;
@@ -136,12 +136,13 @@ namespace MatthewWierenga_20112548_POE
 
         }
 
-        public Goblin(int v1, int v2, TileType enemy, Tile[] tiles)
+        public void Goblins(int v1, int v2, TileType enemy, Tile[] tiles)
         {
             this.v1 = v1;
             this.v2 = v2;
             this.enemy = enemy;
             this.tiles = tiles;
+            
         }
 
         private List<Tile> vision;
@@ -158,7 +159,7 @@ namespace MatthewWierenga_20112548_POE
         private TileType enemy;
         private Tile[] tiles;
 
-        public override MovementDirection ReturnMove(MovementDirtection CharacterMove = MovementDirtection.NoMovement)
+        public override MovementDirection ReturnMove(MovementDirection CharacterMove = MovementDirection.NoMovement)
         {
             int RandomTileIndex = RANDOM_NUMBER_GENERATOR.Next(0, VISION.Count);
 
@@ -233,7 +234,7 @@ namespace MatthewWierenga_20112548_POE
         }
 
 
-        public Tile(int _x, int _y, string _SYMBOL, TileType _TYPEOFTILE)
+        public void Tile(int _x, int _y, string _SYMBOL, TileType _TYPEOFTILE)
         {
             X = _x;
             Y = _y;
@@ -246,7 +247,7 @@ namespace MatthewWierenga_20112548_POE
 
         }
 
-        public Mage(int v1, int v2, TileType enemy, Tile[] tiles)
+        public void Mage(int v1, int v2, TileType enemy, Tile[] tiles)
         {
             this.v1 = v1;
             this.v2 = v2;
@@ -335,7 +336,7 @@ namespace MatthewWierenga_20112548_POE
         }
 
 
-        public Tile(int _x, int _y, string _SYMBOL, TileType _TYPEOFTILE)
+        public void Tile(int _x, int _y, string _SYMBOL, TileType _TYPEOFTILE)
         {
             X = _x;
             Y = _y;
@@ -347,13 +348,9 @@ namespace MatthewWierenga_20112548_POE
 
         }
 
-        public Leader(int v1, int v2, TileType enemy, Tile[] tiles)
-        {
-            this.v1 = v1;
-            this.v2 = v2;
-            this.enemy = enemy;
-            this.tiles = tiles;
-        }
+
+
+
 
         private List<Tile> vision;
         public List<Tile> VISION
@@ -369,7 +366,7 @@ namespace MatthewWierenga_20112548_POE
         private TileType enemy;
         private Tile[] tiles;
 
-        public override MovementDirection ReturnMove(MovementDirtection CharacterMove = MovementDirtection.NoMovement)
+        public override MovementDirection ReturnMove(MovementDirection CharacterMove = MovementDirection.NoMovement)
         {
             int RandomTileIndex = RANDOM_NUMBER_GENERATOR.Next(0, VISION.Count);
 
@@ -400,7 +397,10 @@ namespace MatthewWierenga_20112548_POE
 
             return MovementDirection.NoMovement;
 
+
         }
+        
+
     }
 }
 

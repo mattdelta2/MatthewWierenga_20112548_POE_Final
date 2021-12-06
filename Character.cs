@@ -77,9 +77,17 @@ namespace MatthewWierenga_20112548_POE
 
         }
 
+        protected int gold;
+        public int GOLD
+        {
+            get { return gold; }
+            set { gold = value; }
+        }
+
+
         public static object Gold { get; internal set; }
 
-        public Character(int _X, int _Y, string _SYMBOL, TileType _TYPEOFTILE, int _HP, int _MAXHP, int _DAMAGE)
+        public void Character(int _X, int _Y, string _SYMBOL, TileType _TYPEOFTILE, int _HP, int _MAXHP, int _DAMAGE)
         {
             X = _X;
             Y = _Y;
@@ -120,20 +128,20 @@ namespace MatthewWierenga_20112548_POE
             return Math.Abs(X - target.X) + Math.Abs(Y - target.Y);
         }
 
-        public void Move(MovementDirtection CharacterMove)
+        public void Move(MovementDirection CharacterMove)
         {
             switch (CharacterMove)
             {
-                case MovementDirtection.Up:
+                case MovementDirection.Up:
                     Y--;
                     break;
-                case MovementDirtection.Down:
+                case MovementDirection.Down:
                     Y++;
                     break;
-                case MovementDirtection.Left:
+                case MovementDirection.Left:
                     X--;
                     break;
-                case MovementDirtection.Right:
+                case MovementDirection.Right:
                     X++;
                     break;
 
@@ -141,7 +149,7 @@ namespace MatthewWierenga_20112548_POE
 
         }
 
-        public abstract MovementDirtection ReturnMove(MovementDirtection CharacterMove = 0);
+        public abstract MovementDirection ReturnMove(MovementDirtection CharacterMove = 0);
         public abstract override string ToString();
 
 
@@ -158,6 +166,22 @@ namespace MatthewWierenga_20112548_POE
         internal void Move()
         {
             throw new NotImplementedException();
+        }
+
+        public void Loot()
+        {
+            bool IsDead = false;
+
+            if(Character(HP)>=0)
+            {
+                IsDead = true;
+                {
+                    if(Character(GoldAmmount)>0)
+                    {
+                        Character(GoldAmount) = +Character(GoldAmount);
+                    }
+                }
+            }
         }
     }
 }

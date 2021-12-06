@@ -40,6 +40,7 @@ namespace MatthewWierenga_20112548_POE
             this.btnBuy.TabIndex = 0;
             this.btnBuy.Text = "Purchase";
             this.btnBuy.UseVisualStyleBackColor = true;
+            this.btnBuy.Click += new System.EventHandler(this.btnBuy_Click);
             // 
             // ShopWizzard
             // 

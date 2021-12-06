@@ -47,17 +47,9 @@ namespace MatthewWierenga_20112548_POE
 
         }
 
-        public items(int _x, int _y, string _SYMBOL, TileType _TYPEOFTILE) : base(_x, _y, _SYMBOL, _TYPEOFTILE)
-        {
-        }
 
-        protected items(int x, int y, char symbol1, TileType tileType)
-        {
-            this.x = x;
-            this.y = y;
-            this.symbol1 = symbol1;
-            TileType = tileType;
-        }
+
+      
 
         public override string ToString()
         {

@@ -10,10 +10,9 @@ namespace MatthewWierenga_20112548_POE
     {
         int RANDOMNUMBERGENERATOR = new Random().Next(1, 6);
 
-        public Gold(int x, int y, TileType tileType, Tile[] tiles, char symbol = '$') : base(x,
-                                                                                             y,
-                                                                                             symbol,
-                                                                                             tileType)
+        public int GOLD { get; private set; }
+
+        public Gold(int x, int y, TileType tileType, Tile[] tiles, char symbol = '$') 
         {
 
         }
@@ -21,6 +20,29 @@ namespace MatthewWierenga_20112548_POE
         private int GoldAmount(Character target)
         {
             return Math.Abs(X - target.X) + Math.Abs(Y - target.Y);
+
+            
         }
+
+        public void GetGold()
+        {
+            if(GetType() == Enemy(Mage))
+            {
+                GOLD = 3;
+            }
+
+            if(GetType() == Enemy(Goblin))
+            {
+                GOLD = 1;
+            }
+
+            if(GetType() == Enemy(Leader))
+            {
+                GOLD = 2;
+
+            }
+        }
+
+        
     }
 }

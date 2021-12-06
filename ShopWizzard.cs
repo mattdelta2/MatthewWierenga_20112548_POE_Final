@@ -18,7 +18,7 @@ namespace MatthewWierenga_20112548_POE
 
             btnBuy.Enabled = false;
 
-            if (Character.Gold == Cost)
+            if (Character.Gold >= Cost)
             {
                 btnBuy.Enabled = true;
             }
@@ -31,7 +31,9 @@ namespace MatthewWierenga_20112548_POE
 
         }
 
+        private void btnBuy_Click(object sender, EventArgs e)
+        {
 
-
+        }
     }
 }

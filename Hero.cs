@@ -44,7 +44,7 @@ namespace MatthewWierenga_20112548_POE
         }
 
 
-        public Tile(int _x, int _y, string _SYMBOL, TileType _TYPEOFTILE)
+        public void Tile(int _x, int _y, string _SYMBOL, TileType _TYPEOFTILE)
         {
             X = _x;
             Y = _y;
@@ -72,8 +72,8 @@ namespace MatthewWierenga_20112548_POE
 
         }
 
-        private MovementDirtection movement;
-        public MovementDirtection MOVEMENT
+        private MovementDirection movement;
+        public MovementDirection MOVEMENT
         {
             get { return movement; }
             set { movement = value; }
@@ -89,20 +89,20 @@ namespace MatthewWierenga_20112548_POE
             return Math.Abs(X - target.X) + Math.Abs(Y - target.Y);
         }
 
-        public void Move(MovementDirtection CharacterMove)
+        public void Move(MovementDirection CharacterMove)
         {
             switch (CharacterMove)
             {
-                case MovementDirtection.Up:
+                case MovementDirection.Up:
                     Y--;
                     break;
-                case MovementDirtection.Down:
+                case MovementDirection.Down:
                     Y++;
                     break;
-                case MovementDirtection.Left:
+                case MovementDirection.Left:
                     X--;
                     break;
-                case MovementDirtection.Right:
+                case MovementDirection.Right:
                     X++;
                     break;
 
@@ -110,7 +110,7 @@ namespace MatthewWierenga_20112548_POE
 
         }
 
-        public abstract MovementDirtection ReturnMove(MovementDirtection CharacterMove = 0);
+        public abstract MovementDirection ReturnMove(MovementDirtection CharacterMove = 0);
         public abstract override string ToString();
     }
     public class Character : Hero

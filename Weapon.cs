@@ -33,6 +33,12 @@ namespace MatthewWierenga_20112548_POE
                 RangeWeapon(weaponType);
             }
 
+            else
+            if(weaponType == null)
+            {
+                MeleeWeapon(weaponType);
+            }
+
             
         }
 
@@ -85,7 +91,9 @@ namespace MatthewWierenga_20112548_POE
             Dagger,
             Longsword,
             Rifle,
-            Longbow
+            Longbow,
+            BareHands
+
 
         }
 
@@ -119,6 +127,13 @@ namespace MatthewWierenga_20112548_POE
                 cost = 5;
                 symbol = "LS";
             }
+
+            if(weaponType =="" || weaponType ==null)
+            {
+                damage = 2;
+                range = 1;
+            }
+
             
             
 

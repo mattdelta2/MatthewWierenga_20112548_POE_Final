@@ -25,11 +25,18 @@ namespace MatthewWierenga_20112548_POE
             {
 
             }
+
+            btnPurchase.Enabled = false;
+            btnPurchase.Visible = false;
+            lblShop.Visible = false;
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
+
+            
         }
     }
 }
