@@ -16,12 +16,12 @@ namespace MatthewWierenga_20112548_POE
 
 
 
-    internal class Gold : Items
+    internal class GOLD : Items
     {
         int RANDOMNUMBERGENERATOR = new Random().Next(1, 6);
 
 
-        public Gold(int x, int y, TileType tileType, Tile[] tiles, string _symbol = "$") : base(x, y, _symbol, tileType)
+        public GOLD(int x, int y, TileType tileType, Tile[] tiles, string _symbol = "$") 
         {
 
         }

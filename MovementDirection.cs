@@ -15,4 +15,4 @@ namespace MatthewWierenga_20112548_POE
         public static MovementDirection Up { get; internal set; }
     }
 }
-}
+
